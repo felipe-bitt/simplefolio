@@ -17,8 +17,6 @@
     clip-path: inset(0 100% 0 0);
   }
 
-  // .hero__ruby is intentionally NOT hidden here — if the JS bundle fails
-  // to load, the stone must still be visible. GSAP sets its start state.
   .hero__rule {
     transform: scaleX(0);
   }
@@ -36,7 +34,6 @@
     .reveal,
     .reveal-title,
     .hero__name-line,
-    .hero__ruby,
     .hero__card {
       opacity: 1;
       clip-path: none;

@@ -71,18 +71,15 @@
   gap: 0.9rem 1.75rem;
 }
 
-// Right column: the stone, then the card, in normal flow.
+// Right column on the hero: just the Antes do Altar card.
 .hero__feature {
-  justify-self: center;
+  justify-self: end;
   width: 100%;
-  max-width: 24rem;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
+  max-width: 22rem;
 
   @media (max-width: 52em) {
-    justify-self: center;
-    max-width: 30rem;
+    justify-self: start;
+    max-width: 28rem;
   }
 
   @include respond(sm) {
@@ -90,57 +87,14 @@
   }
 }
 
-.hero__ruby-wrap {
-  position: relative;
-  align-self: center;
-  width: min(100%, 24rem);
-
-  // A discreet deep-red halo behind the stone — no neon.
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 4% 4% 10%;
-    z-index: -1;
-    border-radius: 50%;
-    background: radial-gradient(
-      closest-side,
-      var(--ruby-glow),
-      rgba(155, 28, 49, 0.12) 55%,
-      transparent 78%
-    );
-    filter: blur(6px);
-  }
-
-  @media (max-width: 52em) {
-    width: 15rem;
-    align-self: center;
-    margin-bottom: 0;
-  }
-
-  @include respond(sm) {
-    width: 12rem;
-    align-self: flex-end;
-    margin-bottom: -1.25rem;
-  }
-}
-
-.hero__ruby {
-  display: block;
-  width: 100%;
-  height: auto;
-  filter: drop-shadow(0 1.75rem 3rem rgba(155, 28, 49, 0.3))
-    drop-shadow(0 0.75rem 1.5rem rgba(0, 0, 0, 0.4));
-}
-
 .hero__card {
-  position: relative;
-  margin-top: 1.75rem;
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
-  padding: 1.15rem 1.25rem 1.3rem;
+  padding: 1.2rem 1.35rem 1.35rem;
   background: var(--ink-raised);
   border: 1px solid var(--line-strong);
+  border-top: 2px solid var(--ruby);
   box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.4);
   transition: transform 0.4s var(--ease), border-color 0.4s var(--ease);
 
@@ -148,10 +102,6 @@
   &:focus-visible {
     transform: translateY(-4px);
     border-color: var(--ruby);
-  }
-
-  @include respond(md) {
-    margin-top: 1.5rem;
   }
 }
 

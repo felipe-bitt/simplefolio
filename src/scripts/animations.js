@@ -13,9 +13,7 @@ export default function initAnimations() {
     return;
   }
 
-  // Starting positions. The ruby is hidden here in JS only — never in CSS —
-  // so a failed bundle load leaves the stone visible.
-  gsap.set(".hero__ruby", { opacity: 0, scale: 0.94, y: 10 });
+  // Starting positions (CSS already hid these via .js-motion).
   gsap.set(".hero__name-line", { clipPath: "inset(0 100% 0 0)", y: 8 });
   gsap.set([".hero__kicker", ".hero__lead", ".hero__actions", ".hero__card"], {
     y: 24,
@@ -27,25 +25,14 @@ export default function initAnimations() {
     onComplete: () => ScrollTrigger.refresh(),
   });
 
-  tl.to(".hero__ruby", {
+  tl.to(".hero__name-line", {
+    clipPath: "inset(0 0% 0 0)",
     opacity: 1,
-    scale: 1,
     y: 0,
-    duration: 1,
-    ease: "power2.out",
+    duration: 0.8,
+    stagger: 0.14,
+    ease: "power3.out",
   })
-    .to(
-      ".hero__name-line",
-      {
-        clipPath: "inset(0 0% 0 0)",
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.14,
-        ease: "power3.out",
-      },
-      "-=0.75"
-    )
     .to(".hero__rule", { scaleX: 1, duration: 0.6 }, "-=0.4")
     .to(
       [".hero__kicker", ".hero__lead", ".hero__actions"],
