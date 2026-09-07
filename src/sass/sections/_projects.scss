@@ -1,78 +1,129 @@
-#projects {
-  background-color: $white-color;
-  color: $dark-blue-text;
-  margin-top: -10rem;
-  padding-top: 15rem;
+.portfolio .section__title {
+  margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+}
 
-  @include respond(tab-land) {
-    margin-top: 0;
-    padding-top: 5rem;
+// ── Featured: Antes do Altar ────────────────────────────────────────
+.feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas:
+    "head  head"
+    "frame frame"
+    "text  text";
+  gap: 1.5rem clamp(2rem, 6vw, 5rem);
+
+  @media (min-width: 56em) {
+    grid-template-columns: 1.15fr 1fr;
+    grid-template-areas:
+      "head  head"
+      "frame text";
+    align-items: start;
+  }
+}
+
+.feature__head {
+  grid-area: head;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--line);
+}
+.feature__title {
+  font-size: clamp(1.9rem, 1.2rem + 2.4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+.feature__domain {
+  font-size: 1rem;
+  color: var(--ruby);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.25s var(--ease);
+  &:hover {
+    border-color: var(--ruby);
+  }
+}
+
+.feature__frame {
+  grid-area: frame;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  background: var(--ink-2);
+}
+.feature__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.feature__text {
+  grid-area: text;
+
+  p {
+    color: var(--ivory-dim);
+  }
+  p + p {
+    margin-top: 1rem;
+  }
+}
+.feature__stack {
+  color: var(--ivory-faint) !important;
+  font-size: 0.95rem;
+}
+.feature__links {
+  margin-top: 1.75rem;
+  max-width: none;
+}
+
+// ── Secondary project ──────────────────────────────────────────────
+.project {
+  margin-top: clamp(4rem, 10vw, 7rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.75rem clamp(2rem, 6vw, 5rem);
+
+  @media (min-width: 56em) {
+    grid-template-columns: 0.85fr 1fr;
+    align-items: start;
+  }
+}
+
+// Image on the right instead of the left — alternates the rhythm.
+.project--media-right {
+  @media (min-width: 56em) {
+    grid-template-columns: 1fr 0.85fr;
   }
 
-  .project-wrapper {
-    margin-bottom: 15rem;
-
-    @include respond(phone) {
-      margin-bottom: 0rem;
-    }
-
-    .row {
-      margin-bottom: 8rem;
-
-      @include respond(phone) {
-        margin-bottom: 4rem;
-      }
-    }
-
-    &__text {
-      text-align: left;
-
-      @include respond(phone) {
-        margin-bottom: 2.5rem !important;
-      }
-      @include respond(tab-land) {
-        margin-bottom: 4.8rem;
-      }
-
-      &-title {
-        font-weight: bold;
-        margin-bottom: 1.8rem;
-        font-size: $mid-font-size;
-
-        @include respond(phone) {
-          font-size: 2rem;
-        }
-      }
-
-      & p > a {
-        color: $secondary-color;
-      }
-    }
-
-    &__image {
-      width: 90%;
-      margin: 0 auto;
-
-      @include respond(tab-land) {
-        width: 100%;
-        margin: 0;
-      }
-
-      & .thumbnail {
-        border: none;
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-        transition: all 0.2s ease-out;
-        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
-        transition: 0.5s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
-          0.5s box-shadow,
-          0.5s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
-
-        @include respond(phone) {
-          border: 1px solid $light-grey;
-          box-shadow: none;
-          margin-bottom: 3.2rem;
-        }
-      }
+  .project__frame {
+    @media (min-width: 56em) {
+      order: 0;
     }
   }
+}
+.project__title {
+  font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.1rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.9rem;
+}
+.project__text p {
+  color: var(--ivory-dim);
+}
+.project__links {
+  margin-top: 1.5rem;
+}
+.project__frame {
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  background: var(--ink-2);
+
+  @media (min-width: 56em) {
+    order: -1;
+  }
+}
+.project__img {
+  display: block;
+  width: 100%;
+  height: auto;
 }

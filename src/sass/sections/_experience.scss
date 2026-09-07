@@ -1,0 +1,71 @@
+.track {
+  grid-column: 2;
+
+  @include respond(md) {
+    grid-column: 1;
+  }
+}
+
+.track__item {
+  display: grid;
+  grid-template-columns: 6rem minmax(0, 1fr);
+  gap: 1.5rem clamp(1.5rem, 4vw, 3rem);
+  padding: 1.75rem 0;
+  border-top: 1px solid var(--line);
+
+  &:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+  &:last-child {
+    padding-bottom: 0;
+  }
+
+  @include respond(sm) {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
+
+.track__years {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--ivory);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  display: flex;
+  flex-direction: column;
+
+  @include respond(sm) {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+}
+.track__to {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ivory-faint);
+
+  &::before {
+    content: "– ";
+  }
+}
+
+.track__role {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+
+  span {
+    color: var(--ivory-dim);
+    font-weight: 500;
+  }
+}
+.track__body p {
+  color: var(--ivory-dim);
+  font-size: 0.98rem;
+}

@@ -1,0 +1,59 @@
+.skills__grid {
+  align-items: start;
+}
+
+.skills__col {
+  grid-column: 2;
+
+  @include respond(md) {
+    grid-column: 1;
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--ivory);
+    margin-bottom: 1rem;
+  }
+
+  & + .skills__col {
+    margin-top: 3rem;
+  }
+}
+
+// The IA column is the newer territory — a ruby edge marks it as such.
+.skills__col--ai {
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--ruby);
+
+  @include respond(md) {
+    padding-left: 1.25rem;
+  }
+}
+
+.skills__list {
+  columns: 2;
+  column-gap: 3rem;
+
+  li {
+    break-inside: avoid;
+    padding: 0.5rem 0;
+    font-size: 0.98rem;
+    color: var(--ivory-dim);
+    border-bottom: 1px solid var(--line);
+  }
+
+  @include respond(sm) {
+    columns: 1;
+  }
+}
+
+.skills__col--ai .skills__list {
+  columns: 1;
+
+  li {
+    color: var(--ivory);
+    max-width: 52ch;
+  }
+}

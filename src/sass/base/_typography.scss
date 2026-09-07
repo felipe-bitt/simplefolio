@@ -1,53 +1,49 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
-
-h1 {
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
   font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ivory);
 }
 
-p,
-a {
-  font-family: "Montserrat", sans-serif;
-  font-size: $default-font-size;
+p {
+  max-width: 62ch;
 }
 
-a,
-a:link,
-a:hover,
-a:visited,
-a:active {
-  text-decoration: none;
+// Section heading — large, left-aligned, sits above its content column.
+.section__title {
+  font-size: clamp(2rem, 1.2rem + 3vw, 3.1rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
 }
 
-a:hover {
-  transition: all 0.3s ease-in-out;
+// A short ruby mark threads the hero motif through each section heading.
+.section__title::before {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 2px;
+  margin-bottom: 1.5rem;
+  background: var(--ruby);
 }
 
-.section-title {
-  margin: 0px;
-  margin-bottom: 4.5rem;
-  font-size: $big-font-size;
-  font-weight: bold;
-  text-transform: uppercase;
-
-  @include respond(phone) {
-    font-size: 2.8rem;
-  }
+.portfolio .section__title::before {
+  margin-bottom: 1.25rem;
 }
 
-.dark-blue-text {
-  color: $dark-blue-text !important;
+strong {
+  font-weight: 600;
+  color: var(--ivory);
 }
 
-.text-color-main {
-  @include supportColorForIE11();
-
-  // Responsive text purple style
-  @include respond(phone) {
-    background-image: none;
-    -webkit-text-fill-color: $secondary-color;
-  }
-
-  &:hover {
-    transform: translateX(2px);
-  }
+// Inline text links inside body copy
+.about__body a,
+.feature__text a:not(.link-cta):not(.link-quiet),
+p a.feature__domain {
+  color: var(--ivory);
+  text-decoration: underline;
+  text-decoration-color: var(--ruby);
+  text-underline-offset: 3px;
 }

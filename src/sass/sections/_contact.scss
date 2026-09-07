@@ -1,39 +1,55 @@
-#contact {
-  background-image: linear-gradient(
-    135deg,
-    $primary-color 0%,
-    $secondary-color 100%
-  );
-  -webkit-clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
-  clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
-  padding: 15rem 0 10rem 0;
-  margin-top: -10rem;
-  margin-bottom: -1px;
-  color: $white-color;
+.contact {
+  padding-bottom: clamp(5rem, 10vw, 8rem);
+}
 
-  @include respond(tab-land) {
-    padding: 10rem 0;
-    clip-path: none;
-    margin-top: 0;
-    -webkit-clip-path: none;
+.contact__lead,
+.contact__email,
+.contact__alt {
+  grid-column: 2;
+
+  @include respond(md) {
+    grid-column: 1;
   }
+}
 
-  .contact-wrapper {
-    margin-top: 3.2rem;
-    padding: 0 2rem;
-    backface-visibility: hidden;
+.contact__lead {
+  font-size: clamp(1.1rem, 1rem + 0.5vw, 1.4rem);
+  color: var(--ivory);
+  max-width: 34ch;
+}
 
-    &__text {
-      margin-bottom: 2.5rem;
-    }
+.contact__email {
+  display: inline-block;
+  margin-top: 1.75rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.4rem, 0.9rem + 2.6vw, 2.6rem);
+  letter-spacing: -0.03em;
+  color: var(--ivory);
+  background-image: linear-gradient(var(--ruby), var(--ruby));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 2px;
+  transition: background-size 0.35s var(--ease);
+  word-break: break-word;
 
-    &__text,
-    a {
-      font-size: 2.4rem;
-
-      @include respond(phone) {
-        font-size: 2rem;
-      }
-    }
+  &:hover,
+  &:focus-visible {
+    background-size: 100% 100%;
+    color: var(--ink);
   }
+}
+
+@include reduced-motion {
+  .contact__email {
+    transition: none;
+  }
+}
+
+.contact__alt {
+  margin-top: 2.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+  max-width: none;
 }

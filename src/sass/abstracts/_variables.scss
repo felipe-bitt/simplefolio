@@ -1,15 +1,33 @@
-// COLORS
-$primary-color: #02aab0;
-$secondary-color: #00cdac;
+// ── Ruby ─────────────────────────────────────────────────────────────
+// Dark, warm, gemstone. One accent does all the work.
 
-$white-color: #fff;
+:root {
+  // Ground and surfaces (warm aubergine-black, not tinted grey)
+  --ink: #1b1420;
+  --ink-2: #201826; // hairlines, faint fills
+  --ink-raised: #261c2e; // the few real surfaces (hero card, ai column)
 
-$dark-grey: #333333;
-$light-grey: #d2d2d2;
+  // Text (warm ivory)
+  --ivory: #f2e9e4;
+  --ivory-dim: #b3a3ab; // secondary text, meta
+  --ivory-faint: #6f6270; // captions, disabled
 
-$dark-blue-text: #272341; // For Headings
+  // The accent — Ruby, motivated by the language Felipe builds on
+  --ruby: #e23e57;
+  --ruby-deep: #9b1c31; // facet shadow, pressed states
+  --ruby-glow: rgba(226, 62, 87, 0.28);
 
-// FONT SIZE
-$default-font-size: 1.6rem;
-$big-font-size: 4rem;
-$mid-font-size: 2.5rem;
+  --line: rgba(242, 233, 228, 0.14);
+  --line-strong: rgba(242, 233, 228, 0.32);
+
+  // Type
+  --font-display: "Bricolage Grotesque", "Trebuchet MS", sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+
+  // Rhythm
+  --shell: 1180px;
+  --gutter: clamp(1.25rem, 6vw, 6rem);
+  --section-y: clamp(4rem, 8vw, 7rem);
+
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}

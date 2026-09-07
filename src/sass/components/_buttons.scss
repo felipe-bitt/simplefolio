@@ -1,107 +1,74 @@
-/* Call to Action Button */
-.cta-btn {
-  display: inline-block;
+// Links, not boxes. A CTA is a word with a ruby underline that fills on hover.
+.link-cta {
   position: relative;
-  padding: 0.8rem $default-font-size;
-  font-weight: bold;
-  line-height: 1;
-  z-index: 1;
-  transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.6s;
+  display: inline-block;
+  font-weight: 600;
+  color: var(--ivory);
+  padding-block: 0.15rem;
 
   &::after {
     content: "";
-    display: block;
     position: absolute;
-    width: 0px;
-    height: 100%;
     left: 0;
     bottom: 0;
-    z-index: -1;
-    transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.3s;
+    width: 100%;
+    height: 2px;
+    background: var(--ruby);
+    transform: scaleX(1);
+    transform-origin: right;
+    transition: transform 0.35s var(--ease);
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+
+  // second layer that draws in from the left as the first retracts
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--ivory);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s var(--ease) 0.05s;
+  }
+
+  &:hover::before,
+  &:focus-visible::before {
+    transform: scaleX(1);
   }
 }
 
-/* Hero Style */
-.cta-btn--hero {
-  @include supportColorForIE11();
-  border-width: 2px;
-  border-style: solid;
-  -moz-border-image: -moz-linear-gradient(
-    135deg,
-    $primary-color 0%,
-    $secondary-color 100%
-  );
-  -webkit-border-image: -webkit-linear-gradient(
-    135deg,
-    $primary-color 0%,
-    $secondary-color 100%
-  );
-  border-image: linear-gradient(
-    135deg,
-    $primary-color 0%,
-    $secondary-color 100%
-  );
-  -webkit-border-image-slice: 1;
-  border-image-slice: 1;
-  @include supportIE11() {
-    color: $secondary-color !important;
-    &:hover {
-      color: $white-color !important;
-    }
-  }
+.link-quiet {
+  display: inline-block;
+  font-weight: 500;
+  color: var(--ivory-dim);
+  border-bottom: 1px solid var(--line-strong);
+  padding-block: 0.15rem;
+  transition: color 0.25s var(--ease), border-color 0.25s var(--ease);
 
-  @include respond(phone) {
-    background-image: none;
-    border: 2px solid $secondary-color;
-    -webkit-text-fill-color: $secondary-color;
-  }
-
-  &::after {
-    background-image: linear-gradient(
-      135deg,
-      $primary-color 0%,
-      $secondary-color 100%
-    );
-
-    @include respond(phone) {
-      background-image: none;
-    }
-  }
-
-  &:hover {
-    -webkit-text-fill-color: $white-color;
-    text-decoration: none;
-
-    @include respond(phone) {
-      -webkit-text-fill-color: $secondary-color;
-    }
-
-    &::after {
-      width: 100%;
-    }
+  &:hover,
+  &:focus-visible {
+    color: var(--ivory);
+    border-color: var(--ivory);
   }
 }
 
-/* Resume Style */
-.cta-btn--resume {
-  color: $white-color;
-  border: 2px solid $white-color;
-
-  &::after {
-    background: $white-color;
-  }
-
-  &:hover {
-    color: $secondary-color;
-    text-decoration: none;
-
-    &::after {
-      width: 100%;
-    }
-  }
+.link-cta + .link-quiet,
+.link-quiet + .link-quiet,
+.link-cta + .link-cta {
+  margin-left: 1.75rem;
 }
 
-/* Arrow Button */
-.up i {
-  color: #272727;
+@include reduced-motion {
+  .link-cta::before,
+  .link-cta::after {
+    transition: none;
+  }
 }

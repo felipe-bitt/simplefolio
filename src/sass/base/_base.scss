@@ -1,28 +1,71 @@
 html {
-  font-size: 62.5%;
-
-  &.sr .load-hidden {
-    visibility: hidden;
-  }
+  font-size: 100%;
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
-  text-align: center;
-  scroll-behavior: smooth;
+  background: var(--ink);
+  color: var(--ivory);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
-/* Scrollbar */
+// One warm gradient, anchored top-right near the hero facet — not a wash.
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    46rem 46rem at 82% -8%,
+    var(--ruby-glow),
+    transparent 60%
+  );
+}
+
+main,
+.footer {
+  position: relative;
+  z-index: 1;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 200;
+  padding: 0.6rem 1rem;
+  background: var(--ivory);
+  color: var(--ink);
+  transform: translateY(-150%);
+  transition: transform 0.2s var(--ease);
+
+  &:focus-visible {
+    transform: none;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--ruby);
+  outline-offset: 3px;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--ink);
 }
 ::-webkit-scrollbar-thumb {
-  background: $light-grey;
+  background: var(--ink-raised);
+  border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: $primary-color;
+  background: var(--ruby-deep);
 }

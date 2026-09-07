@@ -1,0 +1,72 @@
+.chrome {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(1rem, 2.5vw, 1.75rem) var(--gutter);
+  pointer-events: none;
+
+  a,
+  button {
+    pointer-events: auto;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 6rem;
+    background: linear-gradient(var(--ink) 38%, transparent);
+    z-index: -1;
+  }
+}
+
+.chrome__mark {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  color: var(--ivory);
+  padding: 0.35rem 0.55rem;
+  border: 1px solid var(--line-strong);
+  transition: border-color 0.25s var(--ease), color 0.25s var(--ease);
+
+  &:hover {
+    color: var(--ruby);
+    border-color: var(--ruby);
+  }
+}
+
+.chrome__lang {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  color: var(--ivory-dim);
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--line-strong);
+  transition: color 0.25s var(--ease), border-color 0.25s var(--ease);
+
+  &:hover {
+    color: var(--ivory);
+    border-color: var(--ivory);
+  }
+}
+
+.progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 2px;
+  z-index: 101;
+  background: transparent;
+}
+
+.progress__bar {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--ruby);
+  transform-origin: left;
+}

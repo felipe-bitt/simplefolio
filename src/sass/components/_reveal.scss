@@ -1,0 +1,49 @@
+// Initial states for JS-driven motion. If JS never runs, or the visitor
+// prefers reduced motion, everything is visible by default.
+
+.js-motion {
+  .reveal {
+    opacity: 0;
+  }
+
+  .hero__name-line {
+    display: block;
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+  }
+
+  .reveal-title {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+  }
+
+  .facet {
+    opacity: 0;
+  }
+  .hero__rule {
+    transform: scaleX(0);
+  }
+  .hero__card {
+    opacity: 0;
+  }
+}
+
+.hero__name-line {
+  display: block;
+}
+
+@include reduced-motion {
+  .js-motion {
+    .reveal,
+    .reveal-title,
+    .hero__name-line,
+    .facet,
+    .hero__card {
+      opacity: 1;
+      clip-path: none;
+    }
+    .hero__rule {
+      transform: none;
+    }
+  }
+}

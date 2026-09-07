@@ -1,344 +1,617 @@
 <!--
-  Hello!
-  -
-  Simplefolio is a clean and responsive portfolio template for Developers!
-  Created by Jacobo Martinez.
-  -
-  Github Repo: https://github.com/cobiwave/simplefolio/
-  Readme: https://github.com/cobiwave/simplefolio/README.md
-  -
-  For business & inquires, contact me -> jacobojavier98@gmail.com
+  Portfólio de Felipe Bittencourt Fernandes
+  Desenvolvedor full stack · Ruby on Rails · Vue · React · produtos construídos com IA
+  Contato: felipebittfernandes@gmail.com
 -->
 <!DOCTYPE html>
-<html lang="en" class="sr">
+<html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
     <link rel="shortcut icon" type="image/png" href="assets/favicon.png" />
 
-    <!-- Todo: put here your site title -->
-    <title>[Your name here] | Developer</title>
-    <!-- Todo: add some coding keywords below - e.g: (javascript, yourusername, etc) -->
-    <meta name="keywords" content="[username], [name], skill" />
-    <!-- Todo: improve your SEO by adding a small description of you -->
-    <meta name="description" content="[Your name here] | Developer" />
+    <title>Felipe Bittencourt — desenvolvedor full stack</title>
+    <meta
+      name="keywords"
+      content="Felipe Bittencourt, Felipe Bittencourt Fernandes, desenvolvedor full stack, Ruby on Rails, Vue.js, React, TypeScript, IA, Claude Code, LLM, RAG, Antes do Altar"
+    />
+    <meta
+      name="description"
+      content="Felipe Bittencourt — desenvolvedor full stack (Ruby on Rails, Vue, React) e criador do Antes do Altar (antesdoaltar.com.br), um SaaS construído de ponta a ponta com apoio de IA."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Felipe Bittencourt — desenvolvedor full stack" />
+    <meta
+      property="og:description"
+      content="Desenvolvedor full stack (Ruby on Rails, Vue, React) e criador do Antes do Altar. Produtos construídos com apoio de IA."
+    />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
     />
     <link rel="stylesheet" href="styles.scss" />
-    <script
-      defer
-      src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"
-    ></script>
-
-    <!-- Todo: remove the below script once you finish your portfolio -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script>
+      // Add hook for pre-animation states before first paint. CSS falls back
+      // to fully visible when this class is absent or reduced motion is set.
+      document.documentElement.classList.add("js-motion");
+    </script>
   </head>
 
-  <!-- Todo: read the following HTML Todos to create your stunning portfolio website -->
   <body>
-    <div id="top"></div>
+    <a class="skip-link" href="#portfolio" data-pt="Pular para o conteúdo" data-en="Skip to content"
+      >Pular para o conteúdo</a
+    >
 
-    <!-- **** Hero Section **** -->
-    <section id="hero" class="jumbotron">
-      <div class="container">
-        <h1 class="hero-title load-hidden">
-          Hi, my name is <span class="text-color-main">Your Name</span>
-          <br />
-          I'm the Unknown Developer.
-        </h1>
-        <p class="hero-cta load-hidden">
-          <a rel="noreferrer" class="cta-btn cta-btn--hero" href="#about"
-            >Know more</a
+    <!-- Fixed chrome -->
+    <div class="chrome">
+      <a href="#top" class="chrome__mark" aria-label="Felipe Bittencourt">FB</a>
+      <button id="lang-toggle" type="button" class="chrome__lang" aria-label="Switch language">
+        EN
+      </button>
+    </div>
+    <div class="progress" aria-hidden="true"><span class="progress__bar"></span></div>
+
+    <main id="top">
+      <!-- Hero -->
+      <header class="hero">
+        <div class="shell hero__grid">
+          <div class="hero__intro">
+            <p
+              class="hero__kicker reveal"
+              data-pt="Desenvolvedor full stack — João Pessoa, Brasil"
+              data-en="Full stack developer — João Pessoa, Brazil"
+            >
+              Desenvolvedor full stack — João Pessoa, Brasil
+            </p>
+            <h1 class="hero__name">
+              <span class="hero__name-line">Felipe</span>
+              <span class="hero__name-line">Bittencourt</span>
+            </h1>
+            <span class="hero__rule" aria-hidden="true"></span>
+            <p
+              class="hero__lead reveal"
+              data-pt="Construo back-ends em Ruby on Rails há mais de 4 anos. Hoje uno essa base a IA para desenhar e enviar produtos próprios — inteiros."
+              data-en="I've built Ruby on Rails back ends for over 4 years. Now I pair that foundation with AI to design and ship my own products — end to end."
+            >
+              Construo back-ends em Ruby on Rails há mais de 4 anos. Hoje uno essa
+              base a IA para desenhar e enviar produtos próprios — inteiros.
+            </p>
+            <p class="hero__actions reveal">
+              <a class="link-cta" href="#portfolio" data-pt="Ver o trabalho" data-en="See the work"
+                >Ver o trabalho</a
+              >
+              <a
+                class="link-quiet"
+                href="assets/cv-felipe-bittencourt.pdf"
+                target="_blank"
+                rel="noreferrer"
+                data-pt="Currículo (PDF)"
+                data-en="Résumé (PDF)"
+                >Currículo (PDF)</a
+              >
+            </p>
+          </div>
+
+          <div class="hero__feature">
+            <svg class="facet" viewBox="0 0 220 250" aria-hidden="true">
+              <g class="facet__cut">
+                <!-- pavilion: girdle edges down to the culet -->
+                <polygon fill="#4a0e1c" points="198,64 198,120 110,244" />
+                <polygon fill="#521022" points="22,120 22,64 110,244" />
+                <polygon fill="#591121" points="198,120 142,166 110,244" />
+                <polygon fill="#7a1c33" points="78,166 22,120 110,244" />
+                <polygon fill="#661527" points="142,166 78,166 110,244" />
+                <!-- crown: table edges out to the girdle -->
+                <polygon fill="#ff8a9c" points="88,38 132,38 142,18 78,18" />
+                <polygon fill="#ef5169" points="132,38 166,64 198,64 142,18" />
+                <polygon fill="#d23a52" points="166,64 166,100 198,120 198,64" />
+                <polygon fill="#b52f46" points="166,100 132,126 142,166 198,120" />
+                <polygon fill="#9c243b" points="132,126 88,126 78,166 142,166" />
+                <polygon fill="#de4a60" points="88,126 54,100 22,120 78,166" />
+                <polygon fill="#eb5f76" points="54,100 54,64 22,64 22,120" />
+                <polygon fill="#fb7288" points="54,64 88,38 78,18 22,64" />
+                <!-- table -->
+                <polygon
+                  fill="#f04a62"
+                  points="88,38 132,38 166,64 166,100 132,126 88,126 54,100 54,64"
+                />
+                <polygon fill="#ff9aab" points="54,64 88,38 116,38 104,56 82,56 64,80" />
+                <polygon
+                  fill="#ffd3da"
+                  fill-opacity="0.85"
+                  points="94,43 114,43 106,56 90,55"
+                />
+              </g>
+              <g class="facet__lines">
+                <!-- table octagon -->
+                <polyline
+                  class="facet__line"
+                  points="88,38 132,38 166,64 166,100 132,126 88,126 54,100 54,64 88,38"
+                />
+                <!-- girdle octagon -->
+                <polyline
+                  class="facet__line facet__line--rim"
+                  points="78,18 142,18 198,64 198,120 142,166 78,166 22,120 22,64 78,18"
+                />
+                <!-- crown spokes (table vertex -> girdle vertex) -->
+                <line class="facet__line" x1="88" y1="38" x2="78" y2="18" />
+                <line class="facet__line" x1="132" y1="38" x2="142" y2="18" />
+                <line class="facet__line" x1="166" y1="64" x2="198" y2="64" />
+                <line class="facet__line" x1="166" y1="100" x2="198" y2="120" />
+                <line class="facet__line" x1="132" y1="126" x2="142" y2="166" />
+                <line class="facet__line" x1="88" y1="126" x2="78" y2="166" />
+                <line class="facet__line" x1="54" y1="100" x2="22" y2="120" />
+                <line class="facet__line" x1="54" y1="64" x2="22" y2="64" />
+                <!-- pavilion spokes (girdle vertex -> culet) -->
+                <line class="facet__line" x1="198" y1="120" x2="110" y2="244" />
+                <line class="facet__line" x1="142" y1="166" x2="110" y2="244" />
+                <line class="facet__line" x1="78" y1="166" x2="110" y2="244" />
+                <line class="facet__line" x1="22" y1="120" x2="110" y2="244" />
+              </g>
+            </svg>
+            <a
+              class="hero__card"
+              href="https://antesdoaltar.com.br"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span
+                class="hero__card-eyebrow"
+                data-pt="Produto ao vivo"
+                data-en="Live product"
+                >Produto ao vivo</span
+              >
+              <span class="hero__card-title">Antes do Altar</span>
+              <span class="hero__card-domain">antesdoaltar.com.br</span>
+              <span
+                class="hero__card-note"
+                data-pt="SaaS de finanças de casamento — Rails 7 + React, do primeiro commit ao deploy."
+                data-en="A wedding-finance SaaS — Rails 7 + React, from first commit to deploy."
+                >SaaS de finanças de casamento — Rails 7 + React, do primeiro commit
+                ao deploy.</span
+              >
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <!-- About -->
+      <section class="section about" id="about">
+        <div class="shell about__grid">
+          <h2
+            class="section__title reveal-title"
+            data-pt="Quem sou"
+            data-en="Who I am"
           >
-        </p>
-      </div>
-    </section>
-    <!-- /END Hero Section -->
+            Quem sou
+          </h2>
+          <div class="section__col">
+          <div class="about__intro">
+          <img
+            class="about__photo"
+            src="assets/profile.jpg"
+            alt="Felipe Bittencourt"
+            width="200"
+            height="205"
+          />
+          <div class="about__body">
+            <p
+              data-pt="Sou desenvolvedor de software há mais de 4 anos, especializado em Ruby on Rails e com base sólida em Vue.js e React. Passei por plataformas de educação (EdifyOnline) e de RH para grandes empresas — Nestlé, Ericsson, PepsiCo, Carrefour — na Workverse, e hoje estou na Argus, num projeto omnichannel que junta Gmail, WhatsApp e Instagram para vendas."
+              data-en="I've been a software developer for over 4 years, specialised in Ruby on Rails with a solid foundation in Vue.js and React. I've worked on education platforms (EdifyOnline) and on enterprise HR software — Nestlé, Ericsson, PepsiCo, Carrefour — at Workverse, and I'm now at Argus on an omnichannel sales project tying together Gmail, WhatsApp and Instagram."
+            >
+              Sou desenvolvedor de software há mais de 4 anos, especializado em
+              Ruby on Rails e com base sólida em Vue.js e React. Passei por
+              plataformas de educação (EdifyOnline) e de RH para grandes empresas
+              — Nestlé, Ericsson, PepsiCo, Carrefour — na Workverse, e hoje estou
+              na Argus, num projeto omnichannel que junta Gmail, WhatsApp e
+              Instagram para vendas.
+            </p>
+            <p
+              data-pt="Tenho pós-graduação em Full Stack Web Development e bacharelado em Administração — o que me deixa confortável tanto na modelagem de dados quanto na conversa sobre o negócio. No último ano passei a construir produtos próprios apoiado em IA, aprendendo a orquestrar modelos, agentes e automações dentro de um fluxo de trabalho real."
+              data-en="I hold a postgraduate degree in Full Stack Web Development and a bachelor's in Business Administration — so I'm at home both in data modelling and in the conversation about the business. Over the past year I've been building my own products with AI, learning to orchestrate models, agents and automation inside a real workflow."
+            >
+              Tenho pós-graduação em Full Stack Web Development e bacharelado em
+              Administração — o que me deixa confortável tanto na modelagem de
+              dados quanto na conversa sobre o negócio. No último ano passei a
+              construir produtos próprios apoiado em IA, aprendendo a orquestrar
+              modelos, agentes e automações dentro de um fluxo de trabalho real.
+            </p>
+          </div>
+          </div>
+          <dl class="about__facts">
+            <div>
+              <dt data-pt="Agora" data-en="Now">Agora</dt>
+              <dd
+                data-pt="Full stack na Argus"
+                data-en="Full stack at Argus"
+              >
+                Full stack na Argus
+              </dd>
+            </div>
+            <div>
+              <dt data-pt="Base" data-en="Core">Base</dt>
+              <dd>Ruby on Rails, PostgreSQL, RSpec</dd>
+            </div>
+            <div>
+              <dt data-pt="Explorando" data-en="Exploring">Explorando</dt>
+              <dd data-pt="LLMs, RAG, agentes" data-en="LLMs, RAG, agents">
+                LLMs, RAG, agentes
+              </dd>
+            </div>
+            <div>
+              <dt data-pt="Formação" data-en="Education">Formação</dt>
+              <dd
+                data-pt="Pós em Full Stack + Administração"
+                data-en="Postgrad in Full Stack + Business"
+              >
+                Pós em Full Stack + Administração
+              </dd>
+            </div>
+          </dl>
+          </div>
+        </div>
+      </section>
 
-    <!-- **** About Section **** -->
-    <section id="about">
-      <div class="container">
-        <h2 class="section-title load-hidden">About me</h2>
-        <div class="row about-wrapper">
-          <div class="col-md-6 col-sm-12">
-            <div class="about-wrapper__image load-hidden">
+      <!-- Skills -->
+      <section class="section skills" id="skills">
+        <div class="shell skills__grid">
+          <h2
+            class="section__title reveal-title"
+            data-pt="No que trabalho"
+            data-en="What I work with"
+          >
+            No que trabalho
+          </h2>
+          <div class="section__col">
+          <div class="skills__col">
+            <h3 data-pt="Engenharia" data-en="Engineering">Engenharia</h3>
+            <ul class="skills__list">
+              <li>Ruby on Rails</li>
+              <li>RSpec, TDD</li>
+              <li>PostgreSQL, MySQL, MongoDB</li>
+              <li>Vue.js, Vuex</li>
+              <li>React, TypeScript</li>
+              <li>JavaScript, HTML, CSS</li>
+              <li>Redis, Sidekiq, Solid Queue</li>
+              <li
+                data-pt="APIs e integrações — Stripe, Mercado Pago, OAuth"
+                data-en="APIs and integrations — Stripe, Mercado Pago, OAuth"
+              >
+                APIs e integrações — Stripe, Mercado Pago, OAuth
+              </li>
+              <li>AWS S3, Heroku, Vercel, Railway, Supabase</li>
+              <li>Git, GitHub, Bitbucket</li>
+            </ul>
+          </div>
+          <div class="skills__col skills__col--ai">
+            <h3>IA</h3>
+            <ul class="skills__list">
+              <li
+                data-pt="Desenvolvimento assistido por IA (Claude Code) no fluxo real"
+                data-en="AI-assisted development (Claude Code) in a real workflow"
+              >
+                Desenvolvimento assistido por IA (Claude Code) no fluxo real
+              </li>
+              <li
+                data-pt="Integração de LLMs via API — tool use e saídas estruturadas"
+                data-en="LLM integration via API — tool use and structured output"
+              >
+                Integração de LLMs via API — tool use e saídas estruturadas
+              </li>
+              <li
+                data-pt="RAG e embeddings — busca semântica sobre bases de conhecimento"
+                data-en="RAG and embeddings — semantic search over knowledge bases"
+              >
+                RAG e embeddings — busca semântica sobre bases de conhecimento
+              </li>
+              <li
+                data-pt="Agentes e automação de rotinas"
+                data-en="Agents and task automation"
+              >
+                Agentes e automação de rotinas
+              </li>
+              <li
+                data-pt="Prompt engineering aplicado a produto"
+                data-en="Product-focused prompt engineering"
+              >
+                Prompt engineering aplicado a produto
+              </li>
+            </ul>
+          </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Portfolio -->
+      <section class="section portfolio" id="portfolio">
+        <div class="shell">
+          <h2
+            class="section__title reveal-title"
+            data-pt="Portfólio"
+            data-en="Portfolio"
+          >
+            Portfólio
+          </h2>
+
+          <article class="feature">
+            <div class="feature__head">
+              <h3 class="feature__title">Antes do Altar</h3>
+              <a
+                class="feature__domain"
+                href="https://antesdoaltar.com.br"
+                target="_blank"
+                rel="noreferrer"
+                >antesdoaltar.com.br</a
+              >
+            </div>
+            <div class="feature__frame">
               <img
-                alt="Profile Image"
-                class="img-fluid rounded shadow-lg"
-                height="auto"
-                width="300px"
-                src="assets/profile.jpg"
-                alt="Profile Image"
+                class="feature__img"
+                src="assets/antes-do-altar.jpg"
+                alt="Antes do Altar"
               />
             </div>
-          </div>
-          <div class="col-md-6 col-sm-12">
-            <div class="about-wrapper__info load-hidden">
-              <p class="about-wrapper__info-text">
-                This is where you can describe about yourself. The more you
-                describe about yourself, the more chances you have!
+            <div class="feature__text">
+              <p
+                data-pt="Um SaaS para o casal (ou a assessoria) organizar o dinheiro do casamento: fornecedores, pagamentos, prazos, lista de presentes, metas de economia e lembretes automáticos. Concebi o produto, modelei os dados e construí tudo com apoio de IA."
+                data-en="A SaaS for couples (or their planner) to run the money side of a wedding: vendors, payments, deadlines, gift registry, savings goals and automated reminders. I shaped the product, modelled the data and built all of it with AI assistance."
+              >
+                Um SaaS para o casal (ou a assessoria) organizar o dinheiro do
+                casamento: fornecedores, pagamentos, prazos, lista de presentes,
+                metas de economia e lembretes automáticos. Concebi o produto,
+                modelei os dados e construí tudo com apoio de IA.
               </p>
-              <p class="about-wrapper__info-text">
-                Extra Information about you! like hobbies and your goals.
+              <p
+                class="feature__stack"
+                data-pt="API em Ruby on Rails 7 com PostgreSQL e Solid Queue, front em React e TypeScript, pagamentos por Stripe e Mercado Pago, e-mails transacionais e monitoramento em produção."
+                data-en="A Ruby on Rails 7 API with PostgreSQL and Solid Queue, a React and TypeScript front end, Stripe and Mercado Pago payments, transactional email and production monitoring."
+              >
+                API em Ruby on Rails 7 com PostgreSQL e Solid Queue, front em React
+                e TypeScript, pagamentos por Stripe e Mercado Pago, e-mails
+                transacionais e monitoramento em produção.
               </p>
-              <span class="d-flex mt-3">
+              <p class="feature__links">
                 <a
-                  rel="noreferrer"
+                  class="link-cta"
+                  href="https://antesdoaltar.com.br"
                   target="_blank"
-                  class="cta-btn cta-btn--resume"
-                  href="assets/resume.pdf"
+                  rel="noreferrer"
+                  data-pt="Acessar o site"
+                  data-en="Visit the site"
+                  >Acessar o site</a
                 >
-                  View Resume
-                </a>
-              </span>
+                <a
+                  class="link-quiet"
+                  href="https://app.antesdoaltar.com.br/simulador"
+                  target="_blank"
+                  rel="noreferrer"
+                  data-pt="Abrir o simulador"
+                  data-en="Open the simulator"
+                  >Abrir o simulador</a
+                >
+              </p>
             </div>
-          </div>
+          </article>
+
+          <article class="project">
+            <div class="project__text">
+              <h3 class="project__title">Observador Tático</h3>
+              <p
+                data-pt="Plataforma de scouting de futebol — relatórios estruturados de análise de jogadores, perfis públicos de analista e o Mercado da Bola, ferramenta de reformulação de elenco por clube. Construída em React, Vite e TypeScript sobre Supabase (Postgres, Auth e Edge Functions em Deno), com deploy na Vercel."
+                data-en="A football scouting platform — structured player-analysis reports, public analyst profiles and 'Mercado da Bola', a club squad-rebuild tool. Built with React, Vite and TypeScript on Supabase (Postgres, Auth and Deno Edge Functions), deployed on Vercel."
+              >
+                Plataforma de scouting de futebol — relatórios estruturados de
+                análise de jogadores, perfis públicos de analista e o Mercado da
+                Bola, ferramenta de reformulação de elenco por clube. Construída
+                em React, Vite e TypeScript sobre Supabase (Postgres, Auth e Edge
+                Functions em Deno), com deploy na Vercel.
+              </p>
+              <p class="project__links">
+                <a
+                  class="link-cta"
+                  href="#!"
+                  target="_blank"
+                  rel="noreferrer"
+                  data-pt="Ver o projeto"
+                  data-en="See the project"
+                  >Ver o projeto</a
+                >
+              </p>
+            </div>
+            <div class="project__frame">
+              <img
+                class="project__img"
+                src="assets/observador-tatico.jpg"
+                alt="Observador Tático"
+              />
+            </div>
+          </article>
+
+          <article class="project project--media-right">
+            <div class="project__text">
+              <h3 class="project__title">EdifyOnline</h3>
+              <p
+                data-pt="Marketplace de talento acadêmico online — conecta universidades e escolas a professores, pesquisadores e criadores de conteúdo em centenas de áreas. Atuei na manutenção da plataforma: Ruby on Rails no back-end, Vue.js no front-end, e os relatórios de dados em PostgreSQL para análise de crescimento e alocação de profissionais."
+                data-en="An online marketplace for academic talent — connecting universities and schools to lecturers, researchers and content creators across hundreds of fields. I maintained the platform: Ruby on Rails on the back end, Vue.js on the front end, and the PostgreSQL data reporting for growth analysis and staff allocation."
+              >
+                Marketplace de talento acadêmico online — conecta universidades e
+                escolas a professores, pesquisadores e criadores de conteúdo em
+                centenas de áreas. Atuei na manutenção da plataforma: Ruby on
+                Rails no back-end, Vue.js no front-end, e os relatórios de dados
+                em PostgreSQL para análise de crescimento e alocação de
+                profissionais.
+              </p>
+              <p class="project__links">
+                <a
+                  class="link-cta"
+                  href="https://www.edifyonline.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  data-pt="Ver o site"
+                  data-en="Visit the site"
+                  >Ver o site</a
+                >
+              </p>
+            </div>
+            <div class="project__frame">
+              <img
+                class="project__img"
+                src="assets/edifyonline.jpg"
+                alt="EdifyOnline"
+              />
+            </div>
+          </article>
         </div>
-      </div>
-    </section>
-    <!-- /END About Section -->
+      </section>
 
-    <!-- **** Projects Section **** -->
-    <section id="projects">
-      <div class="container">
-        <div class="project-wrapper">
-          <h2 class="section-title dark-blue-text">Projects</h2>
-
-          <!-- Notice: each .row is a project -->
-          <div class="row">
-            <div class="col-lg-4 col-sm-12">
-              <div class="project-wrapper__text load-hidden">
-                <h3 class="project-wrapper__text-title">Project Title 0</h3>
-                <div>
-                  <p class="mb-4">
-                    Describe the project being very specific, you can use the Twitter standard: no more than 280 characters: 
-                    complement the information: the skills learned or reinforced in its realization and how you faced it, 
-                    prove to be proactive in the search for solutions.
-                  </p>
-                </div>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn cta-btn--hero"
-                  href="#!"
-                >
-                  See Live
-                </a>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn text-color-main"
-                  href="#!"
-                >
-                  Source Code
-                </a>
-              </div>
-            </div>
-            <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image load-hidden">
-                <a rel="noreferrer" href="#!" target="_blank">
-                  <div
-                    data-tilt
-                    data-tilt-max="4"
-                    data-tilt-glare="true"
-                    data-tilt-max-glare="0.5"
-                    class="thumbnail rounded js-tilt"
+      <!-- Experience -->
+      <section class="section experience" id="experience">
+        <div class="shell experience__grid">
+          <h2
+            class="section__title reveal-title"
+            data-pt="Trajetória"
+            data-en="Track record"
+          >
+            Trajetória
+          </h2>
+          <ol class="track section__col">
+            <li class="track__item">
+              <span class="track__years"
+                >2025<span class="track__to" data-pt="hoje" data-en="now">hoje</span></span
+              >
+              <div class="track__body">
+                <h3 class="track__role">
+                  Argus —
+                  <span data-pt="Desenvolvedor full stack" data-en="Full stack developer"
+                    >Desenvolvedor full stack</span
                   >
-                    <img
-                      alt="Project Image"
-                      class="img-fluid"
-                      src="assets/project.jpg"
-                    />
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- /END Project -->
-
-          <!-- Notice: each .row is a project -->
-          <div class="row">
-            <div class="col-lg-4 col-sm-12">
-              <div class="project-wrapper__text load-hidden">
-                <h3 class="project-wrapper__text-title">Project Title 1</h3>
-                <div>
-                  <p class="mb-4">
-                    Demonstrate in this description the skills of a programmer: such as having commitment, 
-                    having perseverance and accepting alternative solutions. Remember that being a portfolio you are not selling the project, 
-                    you are selling yourself, it reflects the resources used: Frameworks, libraries, platforms, etc.
-                  </p>
-                </div>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn cta-btn--hero"
-                  href="#!"
+                </h3>
+                <p
+                  data-pt="Projeto omnichannel de vendas que integra Gmail, WhatsApp, Instagram e outros canais. Ruby on Rails no back-end, Vue.js no front-end, muita integração."
+                  data-en="An omnichannel sales project integrating Gmail, WhatsApp, Instagram and other channels. Ruby on Rails on the back end, Vue.js on the front end, a lot of integration work."
                 >
-                  See Live
-                </a>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn text-color-main"
-                  href="#!"
-                >
-                  Source Code
-                </a>
+                  Projeto omnichannel de vendas que integra Gmail, WhatsApp,
+                  Instagram e outros canais. Ruby on Rails no back-end, Vue.js no
+                  front-end, muita integração.
+                </p>
               </div>
-            </div>
-            <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image load-hidden">
-                <a rel="noreferrer" href="#!" target="_blank">
-                  <div
-                    data-tilt
-                    data-tilt-max="4"
-                    data-tilt-glare="true"
-                    data-tilt-max-glare="0.5"
-                    class="thumbnail rounded js-tilt"
+            </li>
+            <li class="track__item">
+              <span class="track__years">2023<span class="track__to">2025</span></span>
+              <div class="track__body">
+                <h3 class="track__role">
+                  Workverse —
+                  <span data-pt="Desenvolvedor back-end" data-en="Back-end developer"
+                    >Desenvolvedor back-end</span
                   >
-                    <img
-                      alt="Project Image"
-                      class="img-fluid"
-                      src="assets/project.jpg"
-                    />
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- /END Project -->
-
-          <!-- Notice: each .row is a project -->
-          <div class="row">
-            <div class="col-lg-4 col-sm-12">
-              <div class="project-wrapper__text load-hidden">
-                <h3 class="project-wrapper__text-title">Project Title 2</h3>
-                <div>
-                  <p class="mb-4">
-                    If the project was collaborative, reflect it in this description, that will demonstrate communication and/or leadership skills. 
-                    Additionally, if you made use of the mastery of a second language, it will reflect on you professionalism.
-                  </p>
-                </div>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn cta-btn--hero"
-                  href="#!"
+                </h3>
+                <p
+                  data-pt="VideoBot de recrutamento para Nestlé, Ericsson, PepsiCo, Carrefour e Randstad. Rails, MongoDB, Sidekiq e AWS S3. Gatilhos de e-mail, integração de APIs externas e automação do funil — acompanhamento do processo seletivo e validação de documentos."
+                  data-en="A recruitment VideoBot for Nestlé, Ericsson, PepsiCo, Carrefour and Randstad. Rails, MongoDB, Sidekiq and AWS S3. Email triggers, external API integrations and funnel automation — tracking the hiring pipeline and validating documents."
                 >
-                  See Live
-                </a>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn text-color-main"
-                  href="#!"
-                >
-                  Source Code
-                </a>
+                  VideoBot de recrutamento para Nestlé, Ericsson, PepsiCo,
+                  Carrefour e Randstad. Rails, MongoDB, Sidekiq e AWS S3. Gatilhos
+                  de e-mail, integração de APIs externas e automação do funil —
+                  acompanhamento do processo seletivo e validação de documentos.
+                </p>
               </div>
-            </div>
-            <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image load-hidden">
-                <a rel="noreferrer" href="#!" target="_blank">
-                  <div
-                    data-tilt
-                    data-tilt-max="4"
-                    data-tilt-glare="true"
-                    data-tilt-max-glare="0.5"
-                    class="thumbnail rounded js-tilt"
+            </li>
+            <li class="track__item">
+              <span class="track__years">2021<span class="track__to">2023</span></span>
+              <div class="track__body">
+                <h3 class="track__role">
+                  EdifyOnline —
+                  <span data-pt="Desenvolvedor full stack" data-en="Full stack developer"
+                    >Desenvolvedor full stack</span
                   >
-                    <img
-                      alt="Project Image"
-                      class="img-fluid"
-                      src="assets/project.jpg"
-                    />
-                  </div>
-                </a>
+                </h3>
+                <p
+                  data-pt="Manutenção da plataforma de educação: Rails no back-end, Vue.js no front-end. Responsável pelos relatórios de dados em PostgreSQL para análise de crescimento e alocação de profissionais."
+                  data-en="Maintaining the education platform: Rails on the back end, Vue.js on the front end. Owned the PostgreSQL data reporting for growth analysis and staff allocation."
+                >
+                  Manutenção da plataforma de educação: Rails no back-end, Vue.js
+                  no front-end. Responsável pelos relatórios de dados em
+                  PostgreSQL para análise de crescimento e alocação de
+                  profissionais.
+                </p>
               </div>
-            </div>
+            </li>
+            <li class="track__item">
+              <span class="track__years">2022<span class="track__to">2023</span></span>
+              <div class="track__body">
+                <h3 class="track__role">
+                  Unyleya —
+                  <span
+                    data-pt="Pós-graduação em Full Stack Web Development"
+                    data-en="Postgraduate degree, Full Stack Web Development"
+                    >Pós-graduação em Full Stack Web Development</span
+                  >
+                </h3>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="section contact" id="contact">
+        <div class="shell contact__grid">
+          <h2
+            class="section__title reveal-title"
+            data-pt="Vamos conversar"
+            data-en="Let's talk"
+          >
+            Vamos conversar
+          </h2>
+          <div class="section__col">
+          <p
+            class="contact__lead"
+            data-pt="Sobre uma vaga, um projeto ou o Antes do Altar — me escreve."
+            data-en="About a role, a project or Antes do Altar — drop me a line."
+          >
+            Sobre uma vaga, um projeto ou o Antes do Altar — me escreve.
+          </p>
+          <a class="contact__email" href="mailto:felipebittfernandes@gmail.com"
+            >felipebittfernandes@gmail.com</a
+          >
+          <p class="contact__alt">
+            <a
+              class="link-quiet"
+              href="https://wa.me/5583996604332"
+              target="_blank"
+              rel="noreferrer"
+              >WhatsApp</a
+            >
+            <a
+              class="link-quiet"
+              href="https://www.linkedin.com/in/felipe-bittencourt-7647471a4/"
+              target="_blank"
+              rel="noreferrer"
+              >LinkedIn</a
+            >
+            <a
+              class="link-quiet"
+              href="https://instagram.com/felipebitt_"
+              target="_blank"
+              rel="noreferrer"
+              >Instagram</a
+            >
+          </p>
           </div>
-          <!-- /END Project -->
         </div>
-      </div>
-    </section>
-    <!-- /END Projects Section -->
+      </section>
+    </main>
 
-    <!-- **** Contact Section **** -->
-    <section id="contact">
-      <div class="container">
-        <h2 class="section-title">Contact</h2>
-        <div class="contact-wrapper load-hidden">
-          <p class="contact-wrapper__text">[Put your call to action here]</p>
-          <a
-            rel="noreferrer"
-            target="_blank"
-            class="cta-btn cta-btn--resume"
-            href="mailto:example@email.com"
-            >Call to Action</a
-          >
-        </div>
-      </div>
-    </section>
-    <!-- /END Contact Section -->
-
-    <!-- **** Footer Section **** -->
-    <footer class="footer navbar-static-bottom">
-      <div class="container">
-        <a rel="noreferrer" href="#top" class="back-to-top">
-          <i class="fa fa-angle-up fa-2x" aria-hidden="true"></i>
-        </a>
-        <div class="social-links">
-          <a rel="noreferrer" href="#!" target="_blank">
-            <i class="fa fa-twitter fa-inverse"></i>
-          </a>
-          <a rel="noreferrer" href="#!" target="_blank">
-            <i class="fa fa-linkedin fa-inverse"></i>
-          </a>
-          <a rel="noreferrer" href="#!" target="_blank">
-            <i class="fa fa-github fa-inverse"></i>
-          </a>
-        </div>
-
-        <hr />
-
-        <!-- Notice: if you want to give me some credit, it will be huge for me! if not, put your data on it -->
-        <p class="footer__text">
-          © 2021 - Template developed by
-          <a rel="noreferrer" href="https://github.com/cobiwave" target="_blank"
-            >Jacobo Martínez</a
-          >
-        </p>
-
-        <!-- TO DO: remove this entire paragraph once you finish your portfolio -->
-        <p class="mt-3 pt-3">
-          <a
-            rel="noreferrer"
-            class="github-button"
-            href="https://github.com/cobiwave/simplefolio/fork"
-            data-icon="octicon-repo-forked"
-            data-size="large"
-            data-show-count="true"
-            aria-label="Fork ntkme/github-buttons on GitHub"
-            >Fork</a
-          >
-          <a
-            rel="noreferrer" 
-            class="github-button"
-            href="https://github.com/cobiwave/simplefolio"
-            data-icon="octicon-star"
-            data-size="large"
-            data-show-count="true"
-            aria-label="Star cobiwave/simplefolio on GitHub"
-            >Star</a
-          >
-        </p>
+    <footer class="footer">
+      <div class="shell footer__grid">
+        <span>© 2026 Felipe Bittencourt Fernandes</span>
+        <a href="#top" data-pt="Voltar ao topo" data-en="Back to top">Voltar ao topo</a>
       </div>
     </footer>
-    <!-- /END Footer Section -->
 
     <script defer type="module" src="index.js"></script>
   </body>
