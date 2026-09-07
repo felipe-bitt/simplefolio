@@ -38,6 +38,11 @@
       // Add hook for pre-animation states before first paint. CSS falls back
       // to fully visible when this class is absent or reduced motion is set.
       document.documentElement.classList.add("js-motion");
+      // Failsafe: if the module bundle never loads (or is slow), reveal
+      // everything anyway so no text or image is left permanently hidden.
+      window.__motionFallback = setTimeout(function () {
+        document.documentElement.classList.remove("js-motion");
+      }, 3000);
     </script>
   </head>
 
@@ -49,9 +54,18 @@
     <!-- Fixed chrome -->
     <div class="chrome">
       <a href="#top" class="chrome__mark" aria-label="Felipe Bittencourt">FB</a>
-      <button id="lang-toggle" type="button" class="chrome__lang" aria-label="Switch language">
-        EN
-      </button>
+      <nav class="chrome__nav" aria-label="Atalhos">
+        <a
+          href="#contact"
+          class="chrome__link"
+          data-pt="Contato"
+          data-en="Contact"
+          >Contato</a
+        >
+        <button id="lang-toggle" type="button" class="chrome__lang" aria-label="Switch language">
+          EN
+        </button>
+      </nav>
     </div>
     <div class="progress" aria-hidden="true"><span class="progress__bar"></span></div>
 
@@ -74,11 +88,12 @@
             <span class="hero__rule" aria-hidden="true"></span>
             <p
               class="hero__lead reveal"
-              data-pt="Construo back-ends em Ruby on Rails há mais de 4 anos. Hoje uno essa base a IA para desenhar e enviar produtos próprios — inteiros."
-              data-en="I've built Ruby on Rails back ends for over 4 years. Now I pair that foundation with AI to design and ship my own products — end to end."
+              data-pt="Sou desenvolvedor full stack especializado em Ruby on Rails. Construo aplicações web e produtos completos, da modelagem de dados à publicação, com IA integrada ao meu processo de desenvolvimento."
+              data-en="I'm a full stack developer specialised in Ruby on Rails. I build web applications and complete products, from data modelling to deployment, with AI integrated into my development process."
             >
-              Construo back-ends em Ruby on Rails há mais de 4 anos. Hoje uno essa
-              base a IA para desenhar e enviar produtos próprios — inteiros.
+              Sou desenvolvedor full stack especializado em Ruby on Rails. Construo
+              aplicações web e produtos completos, da modelagem de dados à
+              publicação, com IA integrada ao meu processo de desenvolvimento.
             </p>
             <p class="hero__actions reveal">
               <a class="link-cta" href="#portfolio" data-pt="Ver o trabalho" data-en="See the work"
@@ -97,62 +112,19 @@
           </div>
 
           <div class="hero__feature">
-            <svg class="facet" viewBox="0 0 220 250" aria-hidden="true">
-              <g class="facet__cut">
-                <!-- pavilion: girdle edges down to the culet -->
-                <polygon fill="#4a0e1c" points="198,64 198,120 110,244" />
-                <polygon fill="#521022" points="22,120 22,64 110,244" />
-                <polygon fill="#591121" points="198,120 142,166 110,244" />
-                <polygon fill="#7a1c33" points="78,166 22,120 110,244" />
-                <polygon fill="#661527" points="142,166 78,166 110,244" />
-                <!-- crown: table edges out to the girdle -->
-                <polygon fill="#ff8a9c" points="88,38 132,38 142,18 78,18" />
-                <polygon fill="#ef5169" points="132,38 166,64 198,64 142,18" />
-                <polygon fill="#d23a52" points="166,64 166,100 198,120 198,64" />
-                <polygon fill="#b52f46" points="166,100 132,126 142,166 198,120" />
-                <polygon fill="#9c243b" points="132,126 88,126 78,166 142,166" />
-                <polygon fill="#de4a60" points="88,126 54,100 22,120 78,166" />
-                <polygon fill="#eb5f76" points="54,100 54,64 22,64 22,120" />
-                <polygon fill="#fb7288" points="54,64 88,38 78,18 22,64" />
-                <!-- table -->
-                <polygon
-                  fill="#f04a62"
-                  points="88,38 132,38 166,64 166,100 132,126 88,126 54,100 54,64"
-                />
-                <polygon fill="#ff9aab" points="54,64 88,38 116,38 104,56 82,56 64,80" />
-                <polygon
-                  fill="#ffd3da"
-                  fill-opacity="0.85"
-                  points="94,43 114,43 106,56 90,55"
-                />
-              </g>
-              <g class="facet__lines">
-                <!-- table octagon -->
-                <polyline
-                  class="facet__line"
-                  points="88,38 132,38 166,64 166,100 132,126 88,126 54,100 54,64 88,38"
-                />
-                <!-- girdle octagon -->
-                <polyline
-                  class="facet__line facet__line--rim"
-                  points="78,18 142,18 198,64 198,120 142,166 78,166 22,120 22,64 78,18"
-                />
-                <!-- crown spokes (table vertex -> girdle vertex) -->
-                <line class="facet__line" x1="88" y1="38" x2="78" y2="18" />
-                <line class="facet__line" x1="132" y1="38" x2="142" y2="18" />
-                <line class="facet__line" x1="166" y1="64" x2="198" y2="64" />
-                <line class="facet__line" x1="166" y1="100" x2="198" y2="120" />
-                <line class="facet__line" x1="132" y1="126" x2="142" y2="166" />
-                <line class="facet__line" x1="88" y1="126" x2="78" y2="166" />
-                <line class="facet__line" x1="54" y1="100" x2="22" y2="120" />
-                <line class="facet__line" x1="54" y1="64" x2="22" y2="64" />
-                <!-- pavilion spokes (girdle vertex -> culet) -->
-                <line class="facet__line" x1="198" y1="120" x2="110" y2="244" />
-                <line class="facet__line" x1="142" y1="166" x2="110" y2="244" />
-                <line class="facet__line" x1="78" y1="166" x2="110" y2="244" />
-                <line class="facet__line" x1="22" y1="120" x2="110" y2="244" />
-              </g>
-            </svg>
+            <div class="hero__ruby-wrap">
+              <img
+                class="hero__ruby"
+                src="assets/ruby.webp"
+                srcset="assets/ruby.webp 900w, assets/ruby@2x.webp 1400w"
+                sizes="(max-width: 56em) 15rem, (max-width: 72em) 20rem, 24rem"
+                width="900"
+                height="892"
+                alt=""
+                decoding="async"
+                fetchpriority="high"
+              />
+            </div>
             <a
               class="hero__card"
               href="https://antesdoaltar.com.br"
@@ -161,23 +133,180 @@
             >
               <span
                 class="hero__card-eyebrow"
-                data-pt="Produto ao vivo"
-                data-en="Live product"
-                >Produto ao vivo</span
+                data-pt="Produto em produção"
+                data-en="In production"
+                >Produto em produção</span
               >
               <span class="hero__card-title">Antes do Altar</span>
-              <span class="hero__card-domain">antesdoaltar.com.br</span>
               <span
                 class="hero__card-note"
-                data-pt="SaaS de finanças de casamento — Rails 7 + React, do primeiro commit ao deploy."
-                data-en="A wedding-finance SaaS — Rails 7 + React, from first commit to deploy."
-                >SaaS de finanças de casamento — Rails 7 + React, do primeiro commit
-                ao deploy.</span
+                data-pt="SaaS de finanças para casamentos · Rails + React"
+                data-en="Wedding-finance SaaS · Rails + React"
+                >SaaS de finanças para casamentos · Rails + React</span
               >
             </a>
           </div>
         </div>
       </header>
+
+      <!-- Portfolio -->
+      <section class="section portfolio" id="portfolio">
+        <div class="shell">
+          <h2
+            class="section__title reveal-title"
+            data-pt="Portfólio"
+            data-en="Portfolio"
+          >
+            Portfólio
+          </h2>
+
+          <article class="feature">
+            <div class="feature__head">
+              <h3 class="feature__title">Antes do Altar</h3>
+              <a
+                class="feature__domain"
+                href="https://antesdoaltar.com.br"
+                target="_blank"
+                rel="noreferrer"
+                >antesdoaltar.com.br</a
+              >
+            </div>
+            <div class="feature__frame">
+              <img
+                class="feature__img"
+                src="assets/antes-do-altar.jpg"
+                alt="Antes do Altar"
+                loading="lazy"
+              />
+            </div>
+            <div class="feature__text">
+              <dl class="feature__blocks">
+                <dt data-pt="Problema" data-en="Problem">Problema</dt>
+                <dd
+                  data-pt="O casal (ou a assessoria) precisa organizar o dinheiro do casamento: fornecedores, pagamentos, prazos, lista de presentes, metas de economia e lembretes automáticos, tudo num lugar só."
+                  data-en="A couple (or their planner) needs to run the money side of a wedding: vendors, payments, deadlines, gift registry, savings goals and automated reminders, all in one place."
+                >
+                  O casal (ou a assessoria) precisa organizar o dinheiro do
+                  casamento: fornecedores, pagamentos, prazos, lista de presentes,
+                  metas de economia e lembretes automáticos, tudo num lugar só.
+                </dd>
+                <dt data-pt="Minha contribuição" data-en="My contribution">
+                  Minha contribuição
+                </dt>
+                <dd
+                  data-pt="Concebi o produto, modelei os dados e construí a aplicação de ponta a ponta — do primeiro commit ao deploy —, com IA integrada ao processo."
+                  data-en="I shaped the product, modelled the data and built the application end to end — from first commit to deploy — with AI integrated into the process."
+                >
+                  Concebi o produto, modelei os dados e construí a aplicação de
+                  ponta a ponta — do primeiro commit ao deploy —, com IA integrada
+                  ao processo.
+                </dd>
+                <dt data-pt="Tecnologias" data-en="Technologies">Tecnologias</dt>
+                <dd
+                  class="feature__stack"
+                  data-pt="Ruby on Rails 7, PostgreSQL e Solid Queue; front-end em React e TypeScript; pagamentos por Stripe e Mercado Pago; e-mails transacionais e monitoramento em produção."
+                  data-en="Ruby on Rails 7, PostgreSQL and Solid Queue; a React and TypeScript front end; Stripe and Mercado Pago payments; transactional email and production monitoring."
+                >
+                  Ruby on Rails 7, PostgreSQL e Solid Queue; front-end em React e
+                  TypeScript; pagamentos por Stripe e Mercado Pago; e-mails
+                  transacionais e monitoramento em produção.
+                </dd>
+              </dl>
+              <p class="feature__links link-row">
+                <a
+                  class="link-cta"
+                  href="https://antesdoaltar.com.br"
+                  target="_blank"
+                  rel="noreferrer"
+                  data-pt="Acessar o site"
+                  data-en="Visit the site"
+                  >Acessar o site</a
+                >
+                <a
+                  class="link-quiet"
+                  href="https://app.antesdoaltar.com.br/simulador"
+                  target="_blank"
+                  rel="noreferrer"
+                  data-pt="Abrir o simulador"
+                  data-en="Open the simulator"
+                  >Abrir o simulador</a
+                >
+              </p>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project__text">
+              <h3 class="project__title">Observador Tático</h3>
+              <p
+                data-pt="Plataforma de scouting de futebol — relatórios estruturados de análise de jogadores, perfis públicos de analista e o Mercado da Bola, ferramenta de reformulação de elenco por clube. Construída em React, Vite e TypeScript sobre Supabase (Postgres, Auth e Edge Functions em Deno), com deploy na Vercel."
+                data-en="A football scouting platform — structured player-analysis reports, public analyst profiles and 'Mercado da Bola', a club squad-rebuild tool. Built with React, Vite and TypeScript on Supabase (Postgres, Auth and Deno Edge Functions), deployed on Vercel."
+              >
+                Plataforma de scouting de futebol — relatórios estruturados de
+                análise de jogadores, perfis públicos de analista e o Mercado da
+                Bola, ferramenta de reformulação de elenco por clube. Construída
+                em React, Vite e TypeScript sobre Supabase (Postgres, Auth e Edge
+                Functions em Deno), com deploy na Vercel.
+              </p>
+              <p class="project__links link-row">
+                <a
+                  class="link-cta"
+                  href="https://app.observadortatico.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  data-pt="Ver o projeto"
+                  data-en="See the project"
+                  >Ver o projeto</a
+                >
+              </p>
+            </div>
+            <div class="project__frame">
+              <img
+                class="project__img"
+                src="assets/observador-tatico.jpg"
+                alt="Observador Tático"
+                loading="lazy"
+              />
+            </div>
+          </article>
+
+          <article class="project project--media-right">
+            <div class="project__text">
+              <h3 class="project__title">EdifyOnline</h3>
+              <p
+                data-pt="Marketplace de talento acadêmico online — conecta universidades e escolas a professores, pesquisadores e criadores de conteúdo em centenas de áreas. Atuei na manutenção da plataforma: Ruby on Rails no back-end, Vue.js no front-end, e os relatórios de dados em PostgreSQL para análise de crescimento e alocação de profissionais."
+                data-en="An online marketplace for academic talent — connecting universities and schools to lecturers, researchers and content creators across hundreds of fields. I maintained the platform: Ruby on Rails on the back end, Vue.js on the front end, and the PostgreSQL data reporting for growth analysis and staff allocation."
+              >
+                Marketplace de talento acadêmico online — conecta universidades e
+                escolas a professores, pesquisadores e criadores de conteúdo em
+                centenas de áreas. Atuei na manutenção da plataforma: Ruby on
+                Rails no back-end, Vue.js no front-end, e os relatórios de dados
+                em PostgreSQL para análise de crescimento e alocação de
+                profissionais.
+              </p>
+              <p class="project__links link-row">
+                <a
+                  class="link-cta"
+                  href="https://www.edifyonline.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  data-pt="Ver o site"
+                  data-en="Visit the site"
+                  >Ver o site</a
+                >
+              </p>
+            </div>
+            <div class="project__frame">
+              <img
+                class="project__img"
+                src="assets/edifyonline.jpg"
+                alt="EdifyOnline"
+                loading="lazy"
+              />
+            </div>
+          </article>
+        </div>
+      </section>
 
       <!-- About -->
       <section class="section about" id="about">
@@ -266,205 +395,78 @@
           >
             No que trabalho
           </h2>
-          <div class="section__col">
-          <div class="skills__col">
-            <h3 data-pt="Engenharia" data-en="Engineering">Engenharia</h3>
-            <ul class="skills__list">
-              <li>Ruby on Rails</li>
-              <li>RSpec, TDD</li>
-              <li>PostgreSQL, MySQL, MongoDB</li>
-              <li>Vue.js, Vuex</li>
-              <li>React, TypeScript</li>
-              <li>JavaScript, HTML, CSS</li>
-              <li>Redis, Sidekiq, Solid Queue</li>
-              <li
-                data-pt="APIs e integrações — Stripe, Mercado Pago, OAuth"
-                data-en="APIs and integrations — Stripe, Mercado Pago, OAuth"
-              >
-                APIs e integrações — Stripe, Mercado Pago, OAuth
-              </li>
-              <li>AWS S3, Heroku, Vercel, Railway, Supabase</li>
-              <li>Git, GitHub, Bitbucket</li>
-            </ul>
-          </div>
-          <div class="skills__col skills__col--ai">
-            <h3>IA</h3>
-            <ul class="skills__list">
-              <li
-                data-pt="Desenvolvimento assistido por IA (Claude Code) no fluxo real"
-                data-en="AI-assisted development (Claude Code) in a real workflow"
-              >
-                Desenvolvimento assistido por IA (Claude Code) no fluxo real
-              </li>
-              <li
-                data-pt="Integração de LLMs via API — tool use e saídas estruturadas"
-                data-en="LLM integration via API — tool use and structured output"
-              >
-                Integração de LLMs via API — tool use e saídas estruturadas
-              </li>
-              <li
-                data-pt="RAG e embeddings — busca semântica sobre bases de conhecimento"
-                data-en="RAG and embeddings — semantic search over knowledge bases"
-              >
-                RAG e embeddings — busca semântica sobre bases de conhecimento
-              </li>
-              <li
-                data-pt="Agentes e automação de rotinas"
-                data-en="Agents and task automation"
-              >
-                Agentes e automação de rotinas
-              </li>
-              <li
-                data-pt="Prompt engineering aplicado a produto"
-                data-en="Product-focused prompt engineering"
-              >
-                Prompt engineering aplicado a produto
-              </li>
-            </ul>
-          </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Portfolio -->
-      <section class="section portfolio" id="portfolio">
-        <div class="shell">
-          <h2
-            class="section__title reveal-title"
-            data-pt="Portfólio"
-            data-en="Portfolio"
-          >
-            Portfólio
-          </h2>
-
-          <article class="feature">
-            <div class="feature__head">
-              <h3 class="feature__title">Antes do Altar</h3>
-              <a
-                class="feature__domain"
-                href="https://antesdoaltar.com.br"
-                target="_blank"
-                rel="noreferrer"
-                >antesdoaltar.com.br</a
-              >
+          <div class="section__col skills__cols">
+            <div class="skills__group">
+              <h3 data-pt="Backend e dados" data-en="Backend & data">Backend e dados</h3>
+              <ul class="skills__list">
+                <li>Ruby on Rails</li>
+                <li>RSpec, TDD</li>
+                <li>PostgreSQL, MySQL, MongoDB</li>
+                <li>Redis, Sidekiq, Solid Queue</li>
+              </ul>
             </div>
-            <div class="feature__frame">
-              <img
-                class="feature__img"
-                src="assets/antes-do-altar.jpg"
-                alt="Antes do Altar"
-              />
+            <div class="skills__group">
+              <h3>Frontend</h3>
+              <ul class="skills__list">
+                <li>Vue.js, Vuex</li>
+                <li>React, TypeScript</li>
+                <li>JavaScript, HTML, CSS</li>
+              </ul>
             </div>
-            <div class="feature__text">
-              <p
-                data-pt="Um SaaS para o casal (ou a assessoria) organizar o dinheiro do casamento: fornecedores, pagamentos, prazos, lista de presentes, metas de economia e lembretes automáticos. Concebi o produto, modelei os dados e construí tudo com apoio de IA."
-                data-en="A SaaS for couples (or their planner) to run the money side of a wedding: vendors, payments, deadlines, gift registry, savings goals and automated reminders. I shaped the product, modelled the data and built all of it with AI assistance."
+            <div class="skills__group">
+              <h3
+                data-pt="Infraestrutura e integrações"
+                data-en="Infrastructure & integrations"
               >
-                Um SaaS para o casal (ou a assessoria) organizar o dinheiro do
-                casamento: fornecedores, pagamentos, prazos, lista de presentes,
-                metas de economia e lembretes automáticos. Concebi o produto,
-                modelei os dados e construí tudo com apoio de IA.
-              </p>
-              <p
-                class="feature__stack"
-                data-pt="API em Ruby on Rails 7 com PostgreSQL e Solid Queue, front em React e TypeScript, pagamentos por Stripe e Mercado Pago, e-mails transacionais e monitoramento em produção."
-                data-en="A Ruby on Rails 7 API with PostgreSQL and Solid Queue, a React and TypeScript front end, Stripe and Mercado Pago payments, transactional email and production monitoring."
-              >
-                API em Ruby on Rails 7 com PostgreSQL e Solid Queue, front em React
-                e TypeScript, pagamentos por Stripe e Mercado Pago, e-mails
-                transacionais e monitoramento em produção.
-              </p>
-              <p class="feature__links">
-                <a
-                  class="link-cta"
-                  href="https://antesdoaltar.com.br"
-                  target="_blank"
-                  rel="noreferrer"
-                  data-pt="Acessar o site"
-                  data-en="Visit the site"
-                  >Acessar o site</a
+                Infraestrutura e integrações
+              </h3>
+              <ul class="skills__list">
+                <li>AWS S3, Heroku, Vercel, Railway, Supabase</li>
+                <li>Git, GitHub, Bitbucket</li>
+                <li
+                  data-pt="Stripe, Mercado Pago, OAuth"
+                  data-en="Stripe, Mercado Pago, OAuth"
                 >
-                <a
-                  class="link-quiet"
-                  href="https://app.antesdoaltar.com.br/simulador"
-                  target="_blank"
-                  rel="noreferrer"
-                  data-pt="Abrir o simulador"
-                  data-en="Open the simulator"
-                  >Abrir o simulador</a
+                  Stripe, Mercado Pago, OAuth
+                </li>
+              </ul>
+            </div>
+            <div class="skills__group skills__group--ai">
+              <h3 data-pt="IA aplicada" data-en="Applied AI">IA aplicada</h3>
+              <ul class="skills__list">
+                <li
+                  data-pt="Desenvolvimento assistido por IA (Claude Code) no fluxo real"
+                  data-en="AI-assisted development (Claude Code) in a real workflow"
                 >
-              </p>
-            </div>
-          </article>
-
-          <article class="project">
-            <div class="project__text">
-              <h3 class="project__title">Observador Tático</h3>
-              <p
-                data-pt="Plataforma de scouting de futebol — relatórios estruturados de análise de jogadores, perfis públicos de analista e o Mercado da Bola, ferramenta de reformulação de elenco por clube. Construída em React, Vite e TypeScript sobre Supabase (Postgres, Auth e Edge Functions em Deno), com deploy na Vercel."
-                data-en="A football scouting platform — structured player-analysis reports, public analyst profiles and 'Mercado da Bola', a club squad-rebuild tool. Built with React, Vite and TypeScript on Supabase (Postgres, Auth and Deno Edge Functions), deployed on Vercel."
-              >
-                Plataforma de scouting de futebol — relatórios estruturados de
-                análise de jogadores, perfis públicos de analista e o Mercado da
-                Bola, ferramenta de reformulação de elenco por clube. Construída
-                em React, Vite e TypeScript sobre Supabase (Postgres, Auth e Edge
-                Functions em Deno), com deploy na Vercel.
-              </p>
-              <p class="project__links">
-                <a
-                  class="link-cta"
-                  href="#!"
-                  target="_blank"
-                  rel="noreferrer"
-                  data-pt="Ver o projeto"
-                  data-en="See the project"
-                  >Ver o projeto</a
+                  Desenvolvimento assistido por IA (Claude Code) no fluxo real
+                </li>
+                <li
+                  data-pt="Integração de LLMs via API — tool use e saídas estruturadas"
+                  data-en="LLM integration via API — tool use and structured output"
                 >
-              </p>
-            </div>
-            <div class="project__frame">
-              <img
-                class="project__img"
-                src="assets/observador-tatico.jpg"
-                alt="Observador Tático"
-              />
-            </div>
-          </article>
-
-          <article class="project project--media-right">
-            <div class="project__text">
-              <h3 class="project__title">EdifyOnline</h3>
-              <p
-                data-pt="Marketplace de talento acadêmico online — conecta universidades e escolas a professores, pesquisadores e criadores de conteúdo em centenas de áreas. Atuei na manutenção da plataforma: Ruby on Rails no back-end, Vue.js no front-end, e os relatórios de dados em PostgreSQL para análise de crescimento e alocação de profissionais."
-                data-en="An online marketplace for academic talent — connecting universities and schools to lecturers, researchers and content creators across hundreds of fields. I maintained the platform: Ruby on Rails on the back end, Vue.js on the front end, and the PostgreSQL data reporting for growth analysis and staff allocation."
-              >
-                Marketplace de talento acadêmico online — conecta universidades e
-                escolas a professores, pesquisadores e criadores de conteúdo em
-                centenas de áreas. Atuei na manutenção da plataforma: Ruby on
-                Rails no back-end, Vue.js no front-end, e os relatórios de dados
-                em PostgreSQL para análise de crescimento e alocação de
-                profissionais.
-              </p>
-              <p class="project__links">
-                <a
-                  class="link-cta"
-                  href="https://www.edifyonline.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                  data-pt="Ver o site"
-                  data-en="Visit the site"
-                  >Ver o site</a
+                  Integração de LLMs via API — tool use e saídas estruturadas
+                </li>
+                <li
+                  data-pt="RAG e embeddings — busca semântica sobre bases de conhecimento"
+                  data-en="RAG and embeddings — semantic search over knowledge bases"
                 >
-              </p>
+                  RAG e embeddings — busca semântica sobre bases de conhecimento
+                </li>
+                <li
+                  data-pt="Agentes e automação de rotinas"
+                  data-en="Agents and task automation"
+                >
+                  Agentes e automação de rotinas
+                </li>
+                <li
+                  data-pt="Prompt engineering aplicado a produto"
+                  data-en="Product-focused prompt engineering"
+                >
+                  Prompt engineering aplicado a produto
+                </li>
+              </ul>
             </div>
-            <div class="project__frame">
-              <img
-                class="project__img"
-                src="assets/edifyonline.jpg"
-                alt="EdifyOnline"
-              />
-            </div>
-          </article>
+                    </div>
         </div>
       </section>
 

@@ -23,19 +23,51 @@
   }
 }
 
+.chrome__nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+// Shared hit area — visually compact, but at least 44×44 to touch.
+.chrome__mark,
+.chrome__link,
+.chrome__lang {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border: 1px solid var(--line-strong);
+  transition: color 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+
 .chrome__mark {
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 1.05rem;
   letter-spacing: 0.02em;
   color: var(--ivory);
-  padding: 0.35rem 0.55rem;
-  border: 1px solid var(--line-strong);
-  transition: border-color 0.25s var(--ease), color 0.25s var(--ease);
+  min-width: 44px;
+  padding-inline: 0.55rem;
 
-  &:hover {
-    color: var(--ruby);
+  &:hover,
+  &:focus-visible {
+    color: var(--ruby-text);
     border-color: var(--ruby);
+  }
+}
+
+.chrome__link {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--ivory-dim);
+  padding-inline: 0.9rem;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--ivory);
+    border-color: var(--ivory);
   }
 }
 
@@ -45,11 +77,11 @@
   font-size: 0.8rem;
   letter-spacing: 0.14em;
   color: var(--ivory-dim);
-  padding: 0.4rem 0.7rem;
-  border: 1px solid var(--line-strong);
-  transition: color 0.25s var(--ease), border-color 0.25s var(--ease);
+  min-width: 44px;
+  padding-inline: 0.7rem;
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     color: var(--ivory);
     border-color: var(--ivory);
   }

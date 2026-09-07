@@ -60,10 +60,15 @@
   }
 }
 
-.link-cta + .link-quiet,
-.link-quiet + .link-quiet,
-.link-cta + .link-cta {
-  margin-left: 1.75rem;
+// Rows of links use flex gap on the container (see .hero__actions,
+// .feature__links, .project__links, .contact__alt) — no sibling margins,
+// so they wrap cleanly on narrow screens.
+.link-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.9rem 1.75rem;
+  max-width: none;
 }
 
 @include reduced-motion {

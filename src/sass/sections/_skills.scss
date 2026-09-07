@@ -2,58 +2,49 @@
   align-items: start;
 }
 
-.skills__col {
-  grid-column: 2;
+.skills__cols {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.75rem clamp(1.75rem, 4vw, 3rem);
 
   @include respond(md) {
-    grid-column: 1;
-  }
-
-  h3 {
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--ivory);
-    margin-bottom: 1rem;
-  }
-
-  & + .skills__col {
-    margin-top: 3rem;
-  }
-}
-
-// The IA column is the newer territory — a ruby edge marks it as such.
-.skills__col--ai {
-  padding-left: 1.5rem;
-  border-left: 2px solid var(--ruby);
-
-  @include respond(md) {
-    padding-left: 1.25rem;
-  }
-}
-
-.skills__list {
-  columns: 2;
-  column-gap: 3rem;
-
-  li {
-    break-inside: avoid;
-    padding: 0.5rem 0;
-    font-size: 0.98rem;
-    color: var(--ivory-dim);
-    border-bottom: 1px solid var(--line);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   @include respond(sm) {
-    columns: 1;
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
   }
 }
 
-.skills__col--ai .skills__list {
-  columns: 1;
+.skills__group {
+  min-width: 0;
 
-  li {
+  h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
     color: var(--ivory);
-    max-width: 52ch;
+    margin-bottom: 0.9rem;
   }
+}
+
+// Applied AI is the newer territory — a ruby edge marks it, and it
+// spans the full width so the longer lines breathe.
+.skills__group--ai {
+  grid-column: 1 / -1;
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--ruby);
+
+  .skills__list li {
+    color: var(--ivory);
+    max-width: 60ch;
+  }
+}
+
+.skills__list li {
+  padding: 0.5rem 0;
+  font-size: 0.98rem;
+  color: var(--ivory-dim);
+  border-bottom: 1px solid var(--line);
 }

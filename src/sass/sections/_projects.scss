@@ -37,7 +37,7 @@
 }
 .feature__domain {
   font-size: 1rem;
-  color: var(--ruby);
+  color: var(--ruby-text);
   border-bottom: 1px solid transparent;
   transition: border-color 0.25s var(--ease);
   &:hover {
@@ -63,17 +63,32 @@
   p {
     color: var(--ivory-dim);
   }
-  p + p {
-    margin-top: 1rem;
-  }
 }
-.feature__stack {
-  color: var(--ivory-faint) !important;
-  font-size: 0.95rem;
+
+// Short labelled blocks: problem · contribution · technologies.
+.feature__blocks {
+  dt {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ruby-text);
+    margin-bottom: 0.35rem;
+  }
+  dd {
+    color: var(--ivory-dim);
+    line-height: 1.6;
+  }
+  dd + dt {
+    margin-top: 1.4rem;
+  }
+  .feature__stack {
+    font-size: 0.96rem;
+  }
 }
 .feature__links {
   margin-top: 1.75rem;
-  max-width: none;
 }
 
 // ── Secondary project ──────────────────────────────────────────────
